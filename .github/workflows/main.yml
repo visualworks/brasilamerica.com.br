@@ -22,7 +22,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: ${{ secrets.SOURCE_DIR }}
-          DEST_DIR: ${{ secrets.DEST_DIR }}
 
       # Invalidate CloudFront (this action)
       - name: AWS Invalidate CloudFront
