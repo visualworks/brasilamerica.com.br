@@ -1,23 +1,16 @@
-# This is a basic workflow to help you get started with Actions
+name: Upload Website
 
-name: Action Build & Deploy
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     steps:
       - name: Git Checkout
-      - uses: actions/checkout@master
+        uses: actions/checkout@master
       # Upload to S3
       - name: AWS Sync S3 Bucket
         uses: jakejarvis/s3-sync-action@master
